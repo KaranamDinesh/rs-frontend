@@ -17,4 +17,13 @@ steps:
       mkdir publish
       cp -r static/* publish
       cd publish
-      env
+      
+- task: UniversalPackages@0
+  inputs:
+    command: 'publish'
+    publishDirectory: '$(Build.SourcesDirectory)/publish'
+    feedsToUsePublish: 'internal'
+    vstsFeedPublish: 'ce99914a-0f7d-4c46-9ccc-e4d025115ea9/f0174cff-2623-4600-a29f-0eb8a06b0a0c'
+    vstsFeedPackagePublish: 'frontend'
+    versionOption: 'patch'
+    packagePublishDescription: 'RoboShop Frontend'
