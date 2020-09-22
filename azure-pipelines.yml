@@ -17,5 +17,4 @@ steps:
       mkdir publish
       cp -r static/* publish
       cd publish
-      az artifacts universal publish --organization https://dev.azure.com/DevOps-Batches/ --project="DevOps51"  --scope project --feed devopsb51 --name frontend --version 0.0.1 --description "Roboshop Frontend" --path .
-      
+      env
