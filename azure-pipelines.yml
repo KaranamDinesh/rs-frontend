@@ -15,8 +15,7 @@ steps:
     targetType: 'inline'
     script: |
       npm install jslint
-      ls -A 
-      ls /home/ubuntu
+      ls /home/vsts/work
       
       exit 1
   displayName: Install SonarScanner
