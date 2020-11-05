@@ -15,7 +15,9 @@ steps:
     targetType: 'inline'
     script: |
       curl -s -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
-      unzip sonar-scanner-cli-4.5.0.2216-linux.zip
+      #unzip sonar-scanner-cli-4.5.0.2216-linux.zip
+      ls 
+      pwd 
   displayName: Install SonarScanner
 
 - task: Bash@3
