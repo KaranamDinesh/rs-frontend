@@ -9,31 +9,15 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: azd-ci-templates
+
 steps:
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      npm install jslint
-      cd static
-      /home/vsts/work/node_modules/jslint/bin/jslint.js '**/*.js' || true
-  displayName: Lint Check
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      curl -s -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
-      unzip sonar-scanner-cli-4.5.0.2216-linux.zip 
-  displayName: Install SonarScanner
-
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      cd static
-      ../sonar-scanner-4.5.0.2216-linux/bin/sonar-scanner -Dsonar.projectKey=frontend -Dsonar.sources=. -Dsonar.host.url=http://$(SONAR_SERVER):9000 -Dsonar.login=$(SONAR_TOKEN)
-  displayName: Run SonarScan
+- template: codecheck.yml@templates
 
 - task: Bash@3
   inputs:
