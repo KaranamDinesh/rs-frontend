@@ -17,7 +17,7 @@ steps:
       npm install jslint
       cd static
       /home/vsts/work/node_modules/jslint/bin/jslint.js '**/*.js' || true
-  displayName: Code Quality Check 
+  displayName: Lint Check
 
 - task: Bash@3
   inputs:
