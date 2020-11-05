@@ -15,10 +15,9 @@ steps:
     targetType: 'inline'
     script: |
       npm install jslint
-      ls /home/vsts/work/node_modules/jslint/bin
-      
-      exit 1
-  displayName: Install SonarScanner
+      cd static
+      /home/vsts/work/node_modules/jslint/bin/jslint.js '**/*.js'
+  displayName: Code Quality Check 
 
 - task: Bash@3
   inputs:
