@@ -14,6 +14,13 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      npm --version
+  displayName: Install SonarScanner
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
       curl -s -O https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
       unzip sonar-scanner-cli-4.5.0.2216-linux.zip 
   displayName: Install SonarScanner
