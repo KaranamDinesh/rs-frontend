@@ -14,7 +14,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      npm --version
+      npm install jslint
+      exit 1
   displayName: Install SonarScanner
 
 - task: Bash@3
