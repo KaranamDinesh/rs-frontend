@@ -25,6 +25,7 @@ steps:
     repository: 'rkalluru/d51-frontend'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: '1.0.$(Build.BuildId)'
 
 - task: UniversalPackages@0
   inputs:
